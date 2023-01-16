@@ -1,11 +1,16 @@
-//define language
+
 const express = require('express');
 const app = express();
-// connect to Json and Connect PORT and connected Public folder to app
+
+
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true}));
 app.use(express.static("public"));
-// connect to new routes we are creating
+
+
+// connecting to Routes
+
 require("./routes/htmlRoutes")(app);
 require("./routes/apiRoutes")(app);
 const PORT = process.env.PORT || 3000;

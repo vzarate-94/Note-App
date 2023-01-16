@@ -1,4 +1,4 @@
-// CRUD create (.post) read (.get) ipdate (.post) delete (.delete)
+// Create, Read, Update, Delete
 const db = require('../db/db.json');
 const fs = require('fs');
 
@@ -12,10 +12,8 @@ module.exports = function (app) {
 		console.log(req.body);
 
 		db.push(req.body);
-		// this request is coming from server.js so only need ./ local
 		fs.writeFile('./db/db.json', JSON.stringify(db), function (err) {
 			if (err) throw err;
-			// pushed into db but need to show on screen
 			res.json(db);
 		});
 	});
